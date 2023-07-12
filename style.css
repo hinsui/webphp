@@ -1,0 +1,13 @@
+.table{
+    border: solid 1px rgb(61, 0, 192);
+    width: 50%;
+}
+
+.table th td{
+    border-bottom: 1px solid black;
+    padding: auto;
+}
+
+.table tr:hover{
+    background-color: rgb(98, 137, 168);
+}
