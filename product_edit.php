@@ -1,3 +1,9 @@
+<link rel="stylesheet" href="styles.css">
+<style>
+    html{
+        background-color:rgba(23, 8, 172, 0.8);
+    }
+</style>
 <?php
 include "connect.php";
 $sql = "SELECT * FROM tbl_product WHERE id='$_GET[id]'";
@@ -5,10 +11,13 @@ $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 ?>
 
-<form action="product_update.php?id=<?php echo $row[id] ?>" method="post" enctype="multipart/form-data">
-   ชื่อสินค้า <input type="text" name="name" value="<?php echo $row[name]; ?>" /> </br>
-   ราคา <input type="text" name="price" value="<?php echo $row[price]; ?>" /> </br>
-   จำนวนที่เหลือ <input type="text" name="stock" value="<?php echo $row[stock]; ?>" /> </br>
-   รายละเอียดสินค้า <textarea name="description"> <?php echo $row[description]; ?> </textarea> </br>
-   <input type="submit" value="Update" />
+<form action="product_insert.php" method="post" enctype="multipart/form-data">
+    <label for="name">ชื่อสินค้า</label>
+    <input type="text" name="name" class="input" placeholder="ใส่ชื่อสินค้า..."/> </br>
+    <label for="price">ราคา</label>
+    <input type="text" name="price" class="input" placeholder="ใส่ราคา..."/> </br>
+    <label for="stock">จำนวนที่เหลือ</label>
+    <input type="text" name="stock" class="input" placeholder="ใส่จำนวนที่เหลือ..."/> </br>
+    รายละเอียดสินค้า <textarea name="description" class="input"> </textarea> </br>
+    <input type="submit" value="บันทึกข้อมูล" class="button"/>
 </form>
